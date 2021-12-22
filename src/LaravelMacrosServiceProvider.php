@@ -6,11 +6,33 @@ use Illuminate\Support\ServiceProvider;
 
 class LaravelMacrosServiceProvider extends ServiceProvider
 {
+    private function getIncludes($dir, array &$files = []): array
+    {
+        if (is_dir($dir)) {
+            foreach (scandir($dir) as $inode) {
+                $path = realpath($dir . DIRECTORY_SEPARATOR . $inode);
+                if (!is_dir($path)) {
+                    !(pathinfo($path, PATHINFO_EXTENSION) === "php") ?: array_push($files, $path);
+                } elseif (!in_array($inode, [".", ".."])) {
+                    self::getIncludes($path, $files);
+                }
+            }
+        }
+        return $files;
+    }
+
     /**
      * Bootstrap the application services.
      */
     public function boot()
     {
+        /*
+         * include macros
+         * */
+        array_map(function ($helper) {
+            require_once($helper);
+        }, self::getIncludes(__DIR__.'/../Macros'));
+
         /*
          * Optional methods to load your package assets
          */

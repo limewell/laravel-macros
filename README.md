@@ -16,8 +16,14 @@ composer require limewell/laravel-macros
 
 ## Usage
 
+##Eloquent\Builder
+withWhereHas()
 ```php
-// Usage description here
+User::query()
+    ->withWhereHas('subscriptions', function ($query) {
+        $query->where('package_id', 4)->withWhereHas('package');
+    })
+    ->get();
 ```
 
 ### Testing
