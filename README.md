@@ -25,6 +25,15 @@ User::query()
     })
     ->get();
 ```
+### Schema Blueprint
+hasForeign()
+```php
+Schema::table('subscriptions', function (Blueprint $table) {
+    if($table->hasForeign('subscriptions','subscriptions_package_id_foreign')){
+        //
+    }
+});
+```
 
 ### Testing
 
