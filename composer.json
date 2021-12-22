@@ -1,0 +1,54 @@
+{
+    "name": "limewell/laravel-macros",
+    "description": "laravel macros",
+    "keywords": [
+        "limewell",
+        "laravel-macros"
+    ],
+    "homepage": "https://github.com/limewell/laravel-macros",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dipesh Sukhia",
+            "email": "dipesh.sukhia@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Limewell\\LaravelMacros\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Limewell\\LaravelMacros\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Limewell\\LaravelMacros\\LaravelMacrosServiceProvider"
+            ],
+            "aliases": {
+                "LaravelMacros": "Limewell\\LaravelMacros\\LaravelMacrosFacade"
+            }
+        }
+    }
+}
