@@ -16,7 +16,7 @@ composer require limewell/laravel-macros
 
 ## Usage
 
-##Eloquent\Builder
+###Eloquent\Builder
 withWhereHas()
 ```php
 User::query()
