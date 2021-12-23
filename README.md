@@ -29,7 +29,7 @@ User::query()
 hasForeign()
 ```php
 Schema::table('subscriptions', function (Blueprint $table) {
-    if($table->hasForeign('subscriptions','subscriptions_package_id_foreign')){
+    if($table->hasForeign('subscriptions_package_id_foreign')){
         //
     }
 });
