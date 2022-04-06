@@ -34,6 +34,14 @@ Schema::table('subscriptions', function (Blueprint $table) {
     }
 });
 ```
+### Collection
+loadWithLimit()
+```php
+Country::all()
+    ->loadWithLimit(['states' => function($query){
+        $query->limit(1);
+    }]);
+```
 
 ### Testing
 
