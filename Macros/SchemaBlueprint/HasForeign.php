@@ -4,7 +4,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-if (!Blueprint::hasMacro('withWhereHas')) {
+if (!Blueprint::hasMacro('hasForeign')) {
     Blueprint::macro('hasForeign', function (string $foreignKey): bool {
         $schema = DB::connection()->getDatabaseName();
         return !empty(
